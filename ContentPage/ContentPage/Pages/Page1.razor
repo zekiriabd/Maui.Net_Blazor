@@ -1,0 +1,13 @@
+﻿@page "/"
+@layout EmptyLayout
+@inject NavigationManager NavigationManager
+<h1 style="color:blue">Page1</h1>
+<a href="/page2" class="btn btn-primary" role="button">Go to page 2</a>
+<button type="button" class="btn btn-info" @onclick="OnClick">Go to page 2</button>
+
+@code {
+    private void OnClick()
+    {
+        NavigationManager.NavigateTo("/page2");
+    }
+}
