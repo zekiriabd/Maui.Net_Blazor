@@ -1,0 +1,31 @@
+﻿<ul class="nav nav-pills nav-fill fixed-bottom">
+        <li class="nav-item">
+            <button class="nav-link text-center" @onclick="()=> onTabClick(0)">
+                <span class="icon first" aria-hidden="true"></span>
+                <div class="text-center">Cahier de textes</div> 
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link text-center" @onclick="()=> onTabClick(1)">
+                <span class="icon segend" aria-hidden="true"></span> 
+                <div class="text-center">Notes</div> 
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link text-center" @onclick="()=> onTabClick(2)">
+                <span class="icon last" aria-hidden="true"></span> 
+                <div class="text-center">Compétences</div>                 
+            </button>
+        </li>
+</ul>
+
+@code{
+    [Parameter] public int ActivetabIndex { get; set; }
+    [Parameter] public EventCallback<int> ActivetabIndexChanged { get; set; }    
+
+    protected Task onTabClick(int tabIndex)
+    {
+        ActivetabIndex = tabIndex;
+        return ActivetabIndexChanged.InvokeAsync(ActivetabIndex);
+    }
+}

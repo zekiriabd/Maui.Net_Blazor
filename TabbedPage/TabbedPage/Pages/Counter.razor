@@ -1,0 +1,13 @@
+﻿@page "/counter"
+
+<Tap1 ActivetabIndex="@ActivetabIndex"/>
+<Tap2 ActivetabIndex="@ActivetabIndex"/>
+<Tap3 ActivetabIndex="@ActivetabIndex"/>
+
+<div class="bottombar">
+   <Bottombar @bind-ActivetabIndex="ActivetabIndex"/>
+</div>
+
+@code {
+    public int ActivetabIndex { get; set; } = 0;
+}
