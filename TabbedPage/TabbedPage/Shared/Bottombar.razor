@@ -1,4 +1,4 @@
-﻿<ul class="nav nav-pills nav-fill fixed-bottom">
+﻿@*<ul class="nav nav-pills nav-fill fixed-bottom">
         <li class="nav-item">
             <button class="nav-link text-center" @onclick="()=> onTabClick(0)">
                 <span class="icon first" aria-hidden="true"></span>
@@ -28,4 +28,26 @@
         ActivetabIndex = tabIndex;
         return ActivetabIndexChanged.InvokeAsync(ActivetabIndex);
     }
-}
+}*@
+
+
+<ul class="nav nav-pills nav-fill fixed-bottom">
+        <li class="nav-item">
+             <NavLink class="nav-link" href="page1">
+                <span class="icon first" aria-hidden="true"></span>
+                <div class="text-center">Cahier de textes</div> 
+             </NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link" href="page2">
+                <span class="icon first" aria-hidden="true"></span>
+                <div class="text-center">ffffff</div> 
+             </NavLink>
+        </li>
+        <li class="nav-item">
+           <NavLink class="nav-link" href="page3">
+                <span class="icon first" aria-hidden="true"></span>
+                <div class="text-center">111111</div> 
+             </NavLink>
+        </li>
+</ul>

@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <main>
+         <div class="top-row px-4">
+           <NavLink class="navbar-toggler" href="" Match="NavLinkMatch.All">
+              <span class="oi oi-x text-white text-left"></span>
+           </NavLink>
+            <div class="titelBox">
+                <img class="logo" src="/img/logo.png" style="width:50px;" />
+            </div>
+        </div>
+       <article class="content px-4">
+        @Body
+       </article>
+       <div class="bottombar">
+				<Bottombar/>
+       </div>
+    </main>
+</div>
