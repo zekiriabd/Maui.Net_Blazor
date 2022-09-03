@@ -1,0 +1,26 @@
+﻿.border {
+    background-color: #2B0B98;
+    border: 5px solid #C49B33 !important;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 60px;
+    width: 150px;
+}
+.label {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 16px 8px;
+}
+
+.rectangle {
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: blue;
+}
+.colorCss {
+    background-color: red;
+}

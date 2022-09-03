@@ -1,0 +1,44 @@
+﻿@page "/"
+
+
+@* ----------------------------------------- الدرس 3 --------------------
+@using CustomComponent.Components
+<input @bind-value="@_applicationState.LabelMessage.MText" />
+<MyLabelComponent />
+<span class="label" style="@_applicationState.LabelMessage.MColor">
+    @_applicationState.LabelMessage.MText
+</span>
+@code{
+    protected override void OnInitialized()
+    {
+        _applicationState.LabelMessage = new LabelM()
+            {
+                MColor = "color:red",
+                MText = "Abdelali"
+            };
+    }
+}
+
+@*---------------------------- (2) الدرس ----------------------------
+@using CustomComponent.Components
+@using CustomComponent.Models
+
+<div class="d-flex flex-column align-items-center">
+    <span style="font-size:30px;@MyLabelM.MColor">Parent Label</span>
+    <CascadingValue Value="@MyLabelM">
+            <MyLabelComponent />
+    </CascadingValue>
+</div>
+
+@code {
+    public LabelM MyLabelM = 
+    new LabelM() { MColor = "color:red",MText="Abdelali" };
+}
+---------------------------- (1) الدرس الاول ----------------------------
+@using CustomComponent.Components
+<div class="d-flex flex-column align-items-center">
+    <label style="font-size:18px">Parent Label</label>
+    <MyLabelComponent mColor="#D23817" mText="Label1" />
+    <MyLabelComponent mColor="#1F17D2" mText="Label2" />
+</div>
+----------------------------------------------------------------*@

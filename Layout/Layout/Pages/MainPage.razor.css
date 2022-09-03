@@ -1,0 +1,12 @@
+﻿.baseboxstyle {
+    width: 30px;
+    height: 30px;
+}
+
+.hboxstyle {
+    margin-right: 50px;
+}
+
+.vboxstyle {
+    margin-top: 50px;
+}

@@ -1,0 +1,24 @@
+﻿@page "/"
+<h1>Hello, world!</h1>
+
+<div class="list-group">
+    <Virtualize Context="row" Items="@Rows">
+        <button type="button" 
+                class="list-group-item list-group-item-action" 
+                id="@row.Item1"
+                @onclick="()=> selectedId = row.Item1"  >
+            @row.Item2
+        </button>
+    </Virtualize>
+</div>
+
+<p>@selectedId</p>
+
+@code {
+    private int selectedId { get; set; } = 4;
+    private List<(int,string)> Rows { get;set;}
+    protected override void OnInitialized()
+    { 
+        Rows = new List<(int, string)> { (1, "A"), (2, "B"), (3, "C"), (4, "D") };
+    }
+}

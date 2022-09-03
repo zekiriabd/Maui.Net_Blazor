@@ -1,0 +1,15 @@
+﻿@page "/notes"
+    @switch (_ActivetabIndex)
+    {
+        case 0: <Page1/> break;
+        case 1: <Page2 /> break;
+        case 2: <Page3 /> break;
+    }
+
+<div class="bottombar">
+   <Bottombar @bind-ActivetabIndex="@_ActivetabIndex"/>
+</div>
+
+@code {
+   [Parameter] public int _ActivetabIndex { get; set; } = 0;
+}

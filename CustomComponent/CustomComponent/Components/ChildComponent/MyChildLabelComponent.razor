@@ -1,0 +1,13 @@
+﻿@* ----------------------------------------- الدرس 3 --------------------
+<span class="label" style="@_applicationState.LabelMessage.MColor">
+    @_applicationState.LabelMessage.MText 222222222222
+</span>
+
+@* ----------------------------------------- الدرس 2 --------------------
+    @using CustomComponent.Models
+<span style="font-size:20px;@MyLabelM.MColor">1111111</span>
+@code {
+    [CascadingParameter]
+    public LabelM MyLabelM { get; set; }
+}
+*@

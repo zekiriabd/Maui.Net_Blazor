@@ -1,0 +1,57 @@
+﻿@* ----------------------------------------- الدرس 3 --------------------
+@using CustomComponent.Components.ChildComponent
+<div class="border">
+    <span class="label" style="@_applicationState.LabelMessage.MColor">
+        @_applicationState.LabelMessage.MText
+    </span>
+</div>
+
+<MyChildLabelComponent/>
+
+@code{
+    protected override void OnInitialized()
+    {
+        _applicationState.LabelMessage = new LabelM()
+            {
+                MColor = "color:red",
+                MText = "Abdelali"
+            };
+    }
+}
+
+@* ----------------------------------------- الدرس 2 --------------------
+@using CustomComponent.Components.ChildComponent
+@using CustomComponent.Models
+<span style="font-size:20px;@MyLabelM.MColor">@MyLabelM.MText</span>
+<MyChildLabelComponent/>
+@code {
+   [CascadingParameter]
+    public LabelM MyLabelM { get; set; }
+}
+ ----------------------------------------- الدرس الاول 1 --------------------
+    <style>
+    .border {
+        border-width: 5px !important;
+        border-style: solid;
+        display: flex;
+        justify-content: center;
+        border-top-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        height: 60px;
+        width: 125px;
+    }
+    .label {
+        font-size: 30px;
+    }
+</style>
+<div class="border" style="@BorderStyle">
+    <span class="label" style="@FontStyle">@mText</span>
+</div>
+@code{
+    [Parameter] public string mColor { get; set; }
+    [Parameter] public string mText { get; set; }
+    
+    private string BorderStyle { get { return $"border-color:{mColor}!important"; } }
+    private string FontStyle { get { return $"color:{mColor}"; } }
+}
+------------------------------------------------------------------------*@

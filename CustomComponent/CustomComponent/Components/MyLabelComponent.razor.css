@@ -1,0 +1,14 @@
+﻿.border {
+    border-width: 5px !important;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 60px;
+    width: 125px;
+}
+
+.label {
+    font-size: 30px;
+}
