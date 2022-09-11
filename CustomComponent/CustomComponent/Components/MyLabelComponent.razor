@@ -1,4 +1,25 @@
-﻿@* ----------------------------------------- الدرس 3 --------------------
+﻿@* ----------------------------------------- الدرس 4 --------------------
+<div class="border" style="">
+    <span type="text" class="label" style="@FontStyle">@MText</span>
+</div>
+
+@code {
+    private string MText { get; set; }
+    private string FontStyle { get; set; }
+
+    protected override void OnInitialized(){
+        MessagingCenter.Subscribe<CustomComponent.Pages.Index, LabelM>(this, "MyMessage",
+           (sender, arg) =>
+           {
+               MText = arg.MText;
+               FontStyle = arg.MColor;
+               StateHasChanged();
+           });
+    }
+}
+
+
+@* ----------------------------------------- الدرس 3 --------------------
 @using CustomComponent.Components.ChildComponent
 <div class="border">
     <span class="label" style="@_applicationState.LabelMessage.MColor">
@@ -15,6 +36,7 @@
             {
                 MColor = "color:red",
                 MText = "Abdelali"
+                StateHasChanged();
             };
     }
 }

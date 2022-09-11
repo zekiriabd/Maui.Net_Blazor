@@ -1,5 +1,76 @@
 ﻿@page "/"
 
+<EditForm Model="@Components">
+    <Virtualize Context="Component" Items="@Components">
+        <ItemContent>
+            @switch (Component.Type)
+            {
+                case "InputText":
+                    <InputText id="@Component.Name" @bind-Value="Component.Value"></InputText>
+                    break;
+                case "InputCheckbox":
+                    <InputCheckbox id="@Component.Name" @bind-Value="Component.BoolValue"></InputCheckbox>
+                    break;
+                case "InputSelect":
+                    <InputSelect @bind-Value="Component.Value">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </InputSelect>
+                    break;
+            }
+            <br />
+        </ItemContent>
+    </Virtualize>
+</EditForm>
+
+<Virtualize Context="Component" Items="@Components">
+    <ItemContent>
+        <DynamicComponent Type="@Type.GetType(Component.Type)"></DynamicComponent>
+        <br />
+    </ItemContent>
+</Virtualize>
+
+
+@code {
+    private List<ComponentM> Components = new List<ComponentM>() {
+        new ComponentM(){Name="txb",Type="InputText",Value="Abdelali" },
+    };
+
+}
+@*new ComponentM(){Name="chb",Type="InputCheckbox",Value="true" },
+        new ComponentM(){Name="slc",Type="InputSelect",Value="2" },
+*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* ----------------------------------------- الدرس 4 --------------------
+@using CustomComponent.Components
+<input type="text" style="font-size:25px;" @bind-value="PMText">
+<button @onclick="Button_Clicked" >Send</button>
+<MyLabelComponent />
+@code {
+    private string PMText { get; set; }
+    private void Button_Clicked()
+    {
+        LabelM labelM = new LabelM() { MText = PMText, MColor = "color:red" };
+        MessagingCenter.Send<Index, LabelM>(this, "MyMessage", labelM);
+    }
+}
 
 @* ----------------------------------------- الدرس 3 --------------------
 @using CustomComponent.Components
@@ -31,7 +102,7 @@
 </div>
 
 @code {
-    public LabelM MyLabelM = 
+    public LabelM MyLabelM =
     new LabelM() { MColor = "color:red",MText="Abdelali" };
 }
 ---------------------------- (1) الدرس الاول ----------------------------
