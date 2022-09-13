@@ -1,5 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
+@using BlazorPro.BlazorSize
+@inject IJSRuntime JS
+
+<h1>@isDarck</h1>
+
+<MediaQueryList>
+	<MediaQuery Media="(prefers-color-scheme: dark)" @bind-Matches="isDarck" />
 <div class="page">
 	<div class="sidebar">
 		<NavMenu />
@@ -15,3 +22,27 @@
 		</article>
 	</main>
 </div>
+</MediaQueryList>
+
+@code{
+	private bool _isDarck;
+	public bool isDarck
+	{
+		get
+		{
+			return _isDarck;
+		}
+		set
+		{
+			_isDarck = value;
+			if (_isDarck)
+			{
+				JS.InvokeVoidAsync("setTheme", "theme-dark", "theme-light");
+			}
+			else
+			{
+				JS.InvokeVoidAsync("setTheme", "theme-light", "theme-dark");
+			}
+		}
+	}
+}
