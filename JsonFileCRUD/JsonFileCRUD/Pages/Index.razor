@@ -1,0 +1,55 @@
+﻿@page "/"
+
+@if (Users == null)
+{
+    <p>Users is empty</p>
+}
+else
+{
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+            </tr>
+        </thead>
+    <tbody>
+        <Virtualize Items="@Users" Context="user">
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+            </tr>
+        </Virtualize>
+    </tbody>
+</table>
+}
+<button @onclick="InitText">Init Text</button>
+<textarea @bind="dataResourceText" cols="80" rows="5" />
+<button @onclick="WriteFile">save</button>
+
+
+@*
+
+@using System.Text
+<h1>fichiers statiques</h1>
+<p>@dataResourceText</p>
+@code{
+    public string dataResourceText = "Loading resource ...";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("data1.txt");
+            using var reader = new StreamReader(stream);
+            dataResourceText = await reader.ReadToEndAsync();
+        }
+        catch (FileNotFoundException ex)
+        {
+            dataResourceText = "Data file not found.";
+        }
+    }
+}
+*@

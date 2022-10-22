@@ -1,7 +1,6 @@
-﻿using CustomComponent.Data;
-using CustomComponent.Models;
+﻿using Microsoft.AspNetCore.Components.WebView.Maui;
 
-namespace CustomComponent;
+namespace JsonFileCRUD;
 
 public static class MauiProgram
 {
@@ -17,12 +16,9 @@ public static class MauiProgram
 
 		builder.Services.AddMauiBlazorWebView();
 		#if DEBUG
-			builder.Services.AddBlazorWebViewDeveloperTools();
-		#endif
-		
-		builder.Services.AddSingleton<WeatherForecastService>();
-        builder.Services.AddSingleton<ApplicationState>();
+		builder.Services.AddBlazorWebViewDeveloperTools();
+#endif
 
-        return builder.Build();
+		return builder.Build();
 	}
 }

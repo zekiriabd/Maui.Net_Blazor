@@ -26,18 +26,7 @@
     <span class="slider round"></span>
 </label>
 
-<h1>@Checked</h1>
-<br />
-@{
-    if (Checked == true)
-    {
-        <p>theme-dark</p>
-    }
-    else
-    {
-        <p>theme-light</p>
-    }
-}
+<h1></h1>
 
 <button @onclick="onClick">Save</button>
 
@@ -46,11 +35,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Checked = await JS.InvokeAsync<bool>("isDarkTheme");
+        @Application.Current.UserAppTheme;
     }
 
     public void onClick()
     {
+        
         if (Checked)
         {
             JS.InvokeVoidAsync("setTheme", "theme-dark", "theme-light");
