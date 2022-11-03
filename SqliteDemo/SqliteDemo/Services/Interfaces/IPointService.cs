@@ -7,7 +7,7 @@ namespace SqliteDemo.Services.Interfaces
         Task<List<PointModel>> GetAllPoints();
         Task<PointModel> GetPointById(int Id);
         Task UpdatePoint(PointModel point);
-        Task DeletePoint(PointModel point);
-
+        Task DeletePoint(PointModel point);        
+        Task InsertPoint(PointModel point);
     }
 }

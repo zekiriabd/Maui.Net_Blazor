@@ -2,6 +2,7 @@
 
 @if (Points is not null)
 {
+<a class="btn btn-primary" href="/pointDetail/0" role="button">Add</a>
 <div class="list-group">
     <Virtualize Items="Points" Context="point">
             <PointRow Point="point" OnDeleted="RefreshPointList" />

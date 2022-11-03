@@ -12,7 +12,7 @@ namespace SqliteDemo.Services
         {
             if (_db is null)
             {
-                string pathdb = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MyDB2.db3");
+                string pathdb = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MyDB4.db3");
                 _db = new SQLiteAsyncConnection(pathdb);
                 _db.CreateTableAsync<PointModel>();
                /* _db.InsertAsync(new PointModel() { Id = 1, Title = "MatheMatiques111", Date = DateTime.Now, Point = 18.10M });
@@ -48,6 +48,10 @@ namespace SqliteDemo.Services
         {
             await _db.DeleteAsync(point);
         }
-        
+
+        public async Task InsertPoint(PointModel point)
+        {
+            await _db.InsertAsync(point);
+        }
     }
 }

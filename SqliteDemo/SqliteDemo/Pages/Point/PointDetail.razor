@@ -3,6 +3,7 @@
 @if (Point is not null)
 {
     <EditForm Model="Point" OnValidSubmit="Save">
+        <DataAnnotationsValidator />
         <div class="mb-3">
            <label for="txTitle" class="form-label">Title</label>
            <InputText @bind-Value="Point.Title" class="form-control" id="txTitle" />

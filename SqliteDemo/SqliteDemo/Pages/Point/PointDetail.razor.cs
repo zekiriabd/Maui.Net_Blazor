@@ -17,12 +17,20 @@ namespace SqliteDemo.Pages.Point
         public PointModel Point;
         protected override async Task OnInitializedAsync()
         {
-            Point = await Pointservice.GetPointById(Id);
+            Point = (Id == 0) ? new PointModel() :
+                                await Pointservice.GetPointById(Id);
         }
 
         private async Task Save()
         {
-            await Pointservice.UpdatePoint(Point);
+            if (Id > 0)
+            {
+                await Pointservice.UpdatePoint(Point);
+            }
+            else
+            {
+                await Pointservice.InsertPoint(Point);
+            }
             NavigationManager.NavigateTo("PointsList");
         }
     }
