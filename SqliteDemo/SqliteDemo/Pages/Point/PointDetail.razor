@@ -1,0 +1,25 @@
+﻿@page "/pointDetail/{Id:int}"
+
+@if (Point is not null)
+{
+    <EditForm Model="Point" OnValidSubmit="Save">
+        <div class="mb-3">
+           <label for="txTitle" class="form-label">Title</label>
+           <InputText @bind-Value="Point.Title" class="form-control" id="txTitle" />
+           <ValidationMessage For="() => Point.Title"/>
+        </div>
+        <div class="mb-3">
+           <label for="txDate" class="form-label">Date</label>
+           <InputDate @bind-Value=Point.Date class="form-control" id="txDate" />
+           <ValidationMessage For="() => Point.Date" />
+        </div>
+        <div class="mb-3">
+            <label for="txPoint" class="form-label">Point</label>
+            <InputNumber @bind-Value="Point.Point" class="form-control" id="txPoint" />
+            <ValidationMessage For="() => Point.Point" />
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </EditForm>
+}
+

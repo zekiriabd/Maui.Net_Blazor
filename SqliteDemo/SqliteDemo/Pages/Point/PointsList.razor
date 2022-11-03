@@ -1,0 +1,10 @@
+﻿@page "/pointsList"
+
+@if (Points is not null)
+{
+<div class="list-group">
+    <Virtualize Items="Points" Context="point">
+            <PointRow Point="point" OnDeleted="RefreshPointList" />
+    </Virtualize>    
+</div>
+}
