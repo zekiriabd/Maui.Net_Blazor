@@ -16,7 +16,7 @@ main {
     background-color: #11517B;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
-    height: 3.5rem;
+    height: 3rem;
     display: flex;
     align-items: center;
 }
@@ -41,11 +41,11 @@ main {
 }
 
 .sidebar {
-    width: 250px;
-    height: 95vh;
+    width: 340px;
+    height: 100vh;
     position: absolute;
-    top: 50px;
-    z-index: 1;
+    top: 0px;
+    z-index: 99;
 }
 
 .top-row, article {

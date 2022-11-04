@@ -1,0 +1,28 @@
+﻿#boxProfile {
+    display: flex;
+    flex-direction: column;
+    text-align: -webkit-center;
+    width: 100%;
+    align-items: center;
+    min-height: 90px;
+    background-color: #11517B;
+}
+
+#profileImage {
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profileName {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.profileStat {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
