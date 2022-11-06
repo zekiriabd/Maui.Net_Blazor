@@ -14,8 +14,8 @@ namespace SqliteDemo.Services
             {
                 string pathdb = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MyDB4.db3");
                 _db = new SQLiteAsyncConnection(pathdb);
-                _db.CreateTableAsync<PointModel>();
-               /* _db.InsertAsync(new PointModel() { Id = 1, Title = "MatheMatiques111", Date = DateTime.Now, Point = 18.10M });
+               /* _db.CreateTableAsync<PointModel>();
+                _db.InsertAsync(new PointModel() { Id = 1, Title = "MatheMatiques111", Date = DateTime.Now, Point = 18.10M });
                 _db.InsertAsync(new PointModel() { Id = 2, Title = "Anglais", Date = DateTime.Now, Point = 20.00M });
                 _db.InsertAsync(new PointModel() { Id = 3, Title = "Technologie", Date = DateTime.Now, Point = 11.90M });               
                */           
