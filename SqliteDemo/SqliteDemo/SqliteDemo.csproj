@@ -48,15 +48,13 @@
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
+	
     <ItemGroup>
       <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
       <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.2" />
       <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
       <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
       <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="wwwroot\js\" />
     </ItemGroup>
 
 </Project>
