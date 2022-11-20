@@ -1,0 +1,5 @@
+﻿.non-border {
+    border-left: none;
+    border-right: none;
+    padding: 10px 0;
+}

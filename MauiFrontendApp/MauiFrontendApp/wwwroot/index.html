@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<title>MauiFrontendApp</title>
+	<base href="/" />
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+	<link href="css/app.css" rel="stylesheet" />
+	<link href="MauiFrontendApp.styles.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div class="status-bar-safe-area"></div>
+
+	<div id="app">Loading...</div>
+
+	<div id="blazor-error-ui">
+		An unhandled error has occurred.
+		<a href="" class="reload">Reload</a>
+		<a class="dismiss">🗙</a>
+	</div>
+
+	<script src="_framework/blazor.webview.js" autostart="false"></script>
+	<script src="js/mobiscroll.jquery.min.js"></script>
+	<script>
+		mobiscroll.settings = {
+			lang: 'fr',
+			theme: 'ios',
+			themeVariant: 'light'
+		};
+
+		$(function () {
+
+			$('#action-list').mobiscroll().listview({
+				enhance: true,
+				stages: [{
+					percent: 25,
+					icon: 'link',
+					text: 'Get link',
+					action: function (event, inst) {
+						mobiscroll.toast({
+							message: 'Link copied'
+						});
+					}
+				}, {
+					percent: 50,
+					icon: 'download',
+					text: 'Download',
+					action: function (event, inst) {
+						mobiscroll.toast({
+							message: 'Downloaded'
+						});
+					}
+				}, {
+					percent: -25,
+					icon: 'print',
+					text: 'Print',
+					action: function (event, inst) {
+						mobiscroll.toast({
+							message: 'Printing...'
+						});
+					}
+				},
+				{
+					percent: -50,
+					icon: 'remove',
+					text: 'Delete',
+					confirm: true,
+					action: function (event, inst) {
+						inst.remove(event.target);
+						return false;
+					}
+				}
+				]
+			});
+
+			$('#action-menu').mobiscroll().listview({
+				enhance: true,
+				actions: [{
+					icon: 'link',
+					action: function (event, inst) {
+						mobiscroll.toast({
+							message: 'Linked'
+						});
+					}
+				}, {
+					icon: 'star3',
+					action: function (event, inst) {
+						mobiscroll.toast({
+							message: 'Starred'
+						});
+					}
+				}, {
+					icon: 'download',
+					action: function (event, inst) {
+						mobiscroll.toast({
+							message: 'Downloaded'
+						});
+					}
+				}, {
+					icon: 'print',
+					action: function (event, inst) {
+						mobiscroll.toast({
+							message: 'Printing...'
+						});
+					}
+				}, {
+					icon: 'remove',
+					undo: true,
+					action: function (event, inst) {
+						inst.remove(event.target);
+						return false;
+					}
+				}]
+			});
+
+		});
+	</script>
+</body>
+
+</html>

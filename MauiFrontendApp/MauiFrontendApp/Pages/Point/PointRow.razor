@@ -1,0 +1,17 @@
+﻿@using MauiFrontendApp.Models
+<div class="row">
+    <div class="col-11">
+        <a href="/pointDetail/@Point.Id" class="list-group-item list-group-item-action non-border">
+            <div class="row">
+                <label class="col-10 text-uppercase fw-bold">@Point.Title</label>
+                <label class="col-2 text-end">@Point.Point</label>
+            </div>
+            <div class="row">
+                <label class="col-12">@Point.Date</label>
+            </div>
+        </a>
+    </div>
+    <div class="col-1 align-self-center">
+        <button type="button" class="btn btn-danger" @onclick="Delete">X</button>
+    </div>
+</div>
