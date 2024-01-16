@@ -1,23 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFrameworks>net7.0-android;net7.0-maccatalyst;net7.0-ios</TargetFrameworks>
+        <TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
         <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
         <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
         <!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
         <OutputType>Exe</OutputType>
-        <RootNamespace>MauiFrontendApp</RootNamespace>
+        <RootNamespace>TestRadzenApp</RootNamespace>
         <UseMaui>true</UseMaui>
         <SingleProject>true</SingleProject>
         <ImplicitUsings>enable</ImplicitUsings>
         <EnableDefaultCssItems>false</EnableDefaultCssItems>
 
         <!-- Display name -->
-        <ApplicationTitle>MauiFrontendApp</ApplicationTitle>
+        <ApplicationTitle>TestRadzenApp</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.MauiFrontendApp</ApplicationId>
-        <ApplicationIdGuid>7E04C1B6-B843-4B94-B01E-75F64E474A0E</ApplicationIdGuid>
+        <ApplicationId>com.companyname.testradzenapp</ApplicationId>
+        <ApplicationIdGuid>ED03CBBF-4B91-4CCD-A268-35C36088B389</ApplicationIdGuid>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -50,8 +50,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Polly" Version="7.2.3" />
-      <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+        <PackageReference Include="Radzen.Blazor" Version="4.4.7" />
     </ItemGroup>
 
 </Project>

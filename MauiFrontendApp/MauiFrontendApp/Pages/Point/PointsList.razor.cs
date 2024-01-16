@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MauiFrontendApp.Models;
 using MauiFrontendApp.Services.Interfaces;
+using Polly;
+
 
 namespace MauiFrontendApp.Pages.Point
 {
@@ -16,7 +18,19 @@ namespace MauiFrontendApp.Pages.Point
 
         protected async Task RefreshPointList()
         {
-            Points = (await RefitServices.GetAllPoints()).ToList();
+            var policy = Policy.Handle<HttpRequestException>().RetryAsync(3);
+            try
+            {
+                await policy.ExecuteAsync(async () =>
+                {
+                    Points = (await RefitServices.GetAllPoints()).ToList();
+                    Console.WriteLine("تم الاتصال");
+                });
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("لم استطع الاتصال بالخادم");
+            }
         }
     }
 }

@@ -1,0 +1,34 @@
+﻿@page "/"
+@using CommunityToolkit.Maui.Views;
+@using PopUp.Data
+@using PopUp.Popups
+@inject IJSRuntime Js
+@inject WeatherForecastService ForecastService
+
+<h1>Hello, world!</h1>
+Welcome to your new app.
+
+<button @onclick="ShowMessage" >Show message</button>
+
+<Popup @bind-Show="ShowPopUp" />
+
+@code {
+    
+    private string ShowPopUp{ get; set; }
+
+    private async Task ShowMessage()
+    {
+        ShowPopUp = "d-block";
+        await App.Current.MainPage.ShowPopupAsync(new MyAlert());
+
+        //    await Js.InvokeVoidAsync("alert", "My Message"); // Alert
+        //    bool confirmed = await Js.InvokeAsync<bool>("confirm", "Are you sure?"); // Confirm
+        //    string prompted = await Js.InvokeAsync<string>("prompt", "Take some input:"); // Prompt
+        //await Application.Current.MainPage.DisplayAlert("My titel", "My Message", "Ok");
+        //bool answer = await Application.Current.MainPage.DisplayAlert("Question?", "Would you like to play a game", "Yes", "No");
+        //string action = await Application.Current.MainPage.DisplayActionSheet("ActionSheet: Send to?", "Cancel", null, "Email", "Twitter", "Facebook");
+        //string result = await Application.Current.MainPage.DisplayPromptAsync("Question 1", "What's your name?");
+        //await ForecastService.DisplayAlert("My titel", "My Message", "Ok");
+    }
+    
+}

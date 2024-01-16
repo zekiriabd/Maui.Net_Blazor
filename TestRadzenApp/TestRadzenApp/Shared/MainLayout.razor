@@ -1,0 +1,55 @@
+﻿@inherits LayoutComponentBase
+
+@using Radzen
+@using Radzen.Blazor
+@using TestRadzenApp.Pages
+
+           <RadzenDialog />
+           <RadzenNotification />
+           <RadzenTooltip />
+           <RadzenContextMenu />
+
+           <RadzenLayout>
+               <ChildContent>
+                   <RadzenHeader>
+                       <ChildContent>
+                           <div class="row justify-content-start align-items-center">
+                               <div class="col-6 d-flex align-items-center">
+                                   <RadzenSidebarToggle Click="@SidebarToggle0Click">
+                                   </RadzenSidebarToggle>
+                                   <RadzenLabel Text="test5">
+                                   </RadzenLabel>
+                               </div>
+                               <div class="col-6 text-right">
+                               </div>
+                           </div>
+                       </ChildContent>
+                   </RadzenHeader>
+                   <RadzenBody @ref="body0">
+                       <ChildContent>
+                           <RadzenContentContainer Name="main">
+                               @Body
+                           </RadzenContentContainer>
+                       </ChildContent>
+                   </RadzenBody>
+                   <RadzenSidebar @ref="sidebar0">
+                       <ChildContent>
+                           <RadzenPanelMenu style="height: 100%">
+                               <ChildContent>
+                        <RadzenPanelMenuItem Text="Buttons" Path="buttons" Icon="account_circle"></RadzenPanelMenuItem>
+                        <RadzenPanelMenuItem  Text="Menu" Path="menu" Icon="line_weight"></RadzenPanelMenuItem>
+                        <RadzenPanelMenuItem Text="ChildClick" Icon="attach_file"></RadzenPanelMenuItem>
+                        <RadzenPanelMenuItem  Text="Dialog" Path="dialog" Icon="perm_media"></RadzenPanelMenuItem >
+                        <RadzenPanelMenuItem  Text="Notification" Path="notification" Icon="announcement"></RadzenPanelMenuItem>
+                               </ChildContent>
+                           </RadzenPanelMenu>
+                       </ChildContent>
+                   </RadzenSidebar>
+                   <RadzenFooter>
+                       <ChildContent>
+                           <RadzenLabel Text="test5, Copyright Ⓒ 2023">
+                           </RadzenLabel>
+                       </ChildContent>
+                   </RadzenFooter>
+               </ChildContent>
+           </RadzenLayout>

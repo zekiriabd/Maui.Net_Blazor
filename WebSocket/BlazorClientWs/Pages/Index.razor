@@ -1,0 +1,48 @@
+﻿@page "/"
+
+<PageTitle>SignalR Chat Web</PageTitle>
+<RadzenTextBox Placeholder="Name..." class="w-100" @bind-Value="username" />
+<RadzenTextArea class="w-100" @bind-Value="messages" Style="height:300px" />
+
+<RadzenRow Gap="0.5rem">
+    <RadzenColumn Size="9">
+        <RadzenTextBox Placeholder="Message..." class="w-100" @bind-Value="message" />
+    </RadzenColumn>
+    <RadzenColumn Size="3">
+        <RadzenButton Text="Send" Click="Send"></RadzenButton>
+    </RadzenColumn>
+</RadzenRow>
+
+
+
+@code {
+    private HubConnection? hubConnection;
+    private string messages = string.Empty;
+    private string username = string.Empty;
+    private string message = string.Empty;
+  
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl($"http://localhost:43786/chathub")
+            .Build();
+
+        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+        {
+            messages += $"{user} : {message} \n";
+            StateHasChanged();
+        });
+
+        await hubConnection.StartAsync();
+    }
+
+    private async Task Send()
+    {
+        if (hubConnection != null)
+        {
+            await hubConnection.SendAsync("AddMessageToChat", username, message);
+            message = string.Empty;
+        }
+    }
+}
